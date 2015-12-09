@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ab = (AndroidBanner) findViewById(R.id.ab);
-        ab.setDelayMillis(2000);
+//        ab.setDelayMillis(2000);
         ab.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
 
             private final List<Integer> imgIds = new ArrayList<Integer>() {
