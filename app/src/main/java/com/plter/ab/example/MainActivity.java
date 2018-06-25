@@ -1,15 +1,10 @@
 package com.plter.ab.example;
 
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.plter.lib.ab.AndroidBanner;
 
@@ -43,15 +38,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public Fragment getItem(final int position) {
-                return new Fragment() {
-                    @Nullable
-                    @Override
-                    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-                        ImageView iv = new ImageView(getContext());
-                        iv.setImageResource(imgIds.get(position));
-                        return iv;
-                    }
-                };
+                MyFragment f = new MyFragment();
+                Bundle data = new Bundle();
+                data.putInt(MyFragment.KEY_IMAGE_ID, imgIds.get(position));
+                f.setArguments(data);
+                return f;
             }
 
             @Override
